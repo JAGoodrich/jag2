@@ -1,0 +1,14 @@
+Package: jag2
+Title: Jesse's Commonly Used USC Functions
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Jesse",
+           family = "Goodrich",
+           role = c("aut", "cre"),
+           email = "jagoodri@usc.edu",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: What the package does (one paragraph).
+License: What license it uses
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2
