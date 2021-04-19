@@ -1,7 +1,6 @@
 #' MWAS Function
 #'
 #' @import tidyverse
-#' 
 #' @export
 mwas <- function(data, name_of_exposure){
   MWAS_output_lm <- data %>%
