@@ -3,5 +3,8 @@
 export(clean_ft)
 export(full_data_cleaning)
 export(mwas)
+export(p_act)
+import(MASS)
 import(janitor)
+import(mvtnorm)
 import(tidyverse)
