@@ -77,9 +77,11 @@ p_act <- function(p_values, x_vars, y_vars = NA, covariates, alpha = 0.05){
   colnames(pvals) <- c("y_vars", "x_vars", "p_values")
   L=dim(pvals)[1]
   
+  
   # mutate x_vars
   x_var_list <- pvals[1,2]
   M=corg=1  
+  
   # Assign "G" (originally for gene) to the x-vars
   G<-x_vars %>% data.matrix()
   
@@ -204,6 +206,7 @@ p_act <- function(p_values, x_vars, y_vars = NA, covariates, alpha = 0.05){
         # Genz A (1992) Numerical computation of multivariate normal probabilities.  J Comput Graph Stat 1:141-150
         # Genz A (1993) Comparison of methods for the computation of multivariate normal probabilities.  Comput Sci Stat 25:400-405
         
+        
         # if (oneside==0) {ordered=cbind(ordered,0) }
         p_ACT=1-pmvnorm(lower=lower,upper=upper,sigma=v,maxpts=level1,abseps=.0000000000001)
         if (p_ACT<cutoff2) {
@@ -226,6 +229,7 @@ p_act <- function(p_values, x_vars, y_vars = NA, covariates, alpha = 0.05){
       }
     }
     if (i<L) {ordered[(i+1):L,4]=NA}
+    
     
     colnames(ordered) <- c("y_vars","x_vars","p","p_act")
   }
