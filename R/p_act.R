@@ -156,7 +156,7 @@ p_act <- function(p_values, x_vars, y_vars = NA, covariates, alpha = 0.05){
   # Now, actually run the correction!!
   
   if (err==0) {    #Condition on err==0
-    
+
     #Computation of correlation matrix between K x M tests
     v=kronecker(cory,corg)
     
@@ -229,7 +229,6 @@ p_act <- function(p_values, x_vars, y_vars = NA, covariates, alpha = 0.05){
     if (i<L) {ordered[(i+1):L,4]=NA}
     
 
-    
     colnames(ordered) <- c("y_vars","x_vars","p","p_act")
   }
   return(ordered)
