@@ -3,6 +3,7 @@
 export(avg_sd_fxn)
 export(clean_ft)
 export(cuberoot)
+export(effest_ci)
 export(full_data_cleaning)
 export(fungm)
 export(fungsd)
