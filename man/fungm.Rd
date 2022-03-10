@@ -4,7 +4,7 @@
 \alias{fungm}
 \title{Get formatted character with geometric mean and 95\% CI}
 \usage{
-fungm(x, n.digits = 3, na.rm = FALSE)
+fungm(x, n.digits = 3, na.rm = FALSE, CI_or_SD = "CI")
 }
 \arguments{
 \item{x}{Numeric Vector}

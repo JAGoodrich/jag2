@@ -7,7 +7,7 @@
 #' @param x Numeric Vector
 #' @param n.digits number of digits after the decimal point. Default is 3.
 #' @param na.rm Remove NAs from calculation? Default is FALSE.
-fungm <- function(x, n.digits = 3, na.rm = FALSE){
+fungm <- function(x, n.digits = 3, na.rm = FALSE, CI_or_SD = "CI"){
   if( any(is.na(x))){
     if(na.rm == TRUE){warning("Data contains NA's")}  
     if(na.rm == FALSE){stop("Data contains NA, and na.rm is FALSE")}
@@ -19,7 +19,17 @@ fungm <- function(x, n.digits = 3, na.rm = FALSE){
     signif(., n.digits) %>% 
     formatC(. , format="g", digits=n.digits)
   
-  gm2 <- paste(gm[1], " [", gm[2], ", ", gm[3], "]", sep = "")
-  # gm3 <- if_else(is.finite(Gmean(x,)[1]), gm2, "*")
+  g_sd <- Gsd(x, na.rm = na.rm) %>% 
+    signif(., n.digits) %>% 
+    formatC(. , format="g", digits=n.digits)
+  
+  
+  if(CI_or_SD == "CI"){
+    gm2 <- paste(gm[1], " [", gm[2], ", ", gm[3], "]", sep = "")
+  }
+  if(CI_or_SD == "SD"){
+    gm2 <- paste(gm[1], " (", g_sd, ")", sep = "")
+  }
+  
   return(gm2)
 }
