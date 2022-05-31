@@ -49,7 +49,7 @@ the code has been modified for the following generalized scenario:
 dpdt_var ~ ind_var + covariates      
 Where:          
      dpdt_vars is a set of correlated outcomes/traits;       
-     ind_vars is a set of potentially correlated exposures/metabolites/genes/etc..;        
+     ind_vars is a set of potentially correlated exposures/metabolites/genes/etc..;
      and covariates is a set of covariates for the analysis.           
 This function can not handle more than 1,000 corrections.
 }

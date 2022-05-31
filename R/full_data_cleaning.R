@@ -2,7 +2,6 @@
 #' 
 #' @import tidyverse
 #' 
-#' @export
 full_data_cleaning <- function(data, pct_metab_na_allowed, pct_obs_na_allowed){
   metabolites <- data %>%
     select((match("lg_pfda",names(data)) + 1):ncol(data))

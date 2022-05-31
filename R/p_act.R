@@ -5,11 +5,12 @@
 #' dpdt_var ~ ind_var + covariates      
 #' Where:          
 #'      dpdt_vars is a set of correlated outcomes/traits;       
-#'      ind_vars is a set of potentially correlated exposures/metabolites/genes/etc..;        
+#'      ind_vars is a set of potentially correlated exposures/metabolites/genes/etc..;
 #'      and covariates is a set of covariates for the analysis.           
 #' This function can not handle more than 1,000 corrections. 
 #' 
-#' @import tidyverse MASS mvtnorm
+#' @import tidyverse mvtnorm
+#' @importFrom MASS ginv
 #' @export
 #' @param p_values Data frame with 3 columns. File should contain one row for 
 #' each test. Missingness is not allowed. 
@@ -113,7 +114,7 @@ p_act <- function(p_values, x_vars, y_vars = NA, covariates, alpha = 0.05){
     x_var_list <- colnames(x_vars) %>% t() 
     kg=order(x_var_list)
     G=G[,kg]
-    corg=cov2cor(t(G)%*%G - t(G)%*%X %*% ginv(t(X)%*%X) %*% t(X)%*%G)
+    corg=cov2cor(t(G)%*%G - t(G)%*%X %*% MASS::ginv(t(X)%*%X) %*% t(X)%*%G)
   }
   
   
