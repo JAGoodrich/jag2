@@ -7,13 +7,14 @@ Authors@R:
            role = c("aut", "cre"),
            email = "jagoodri@usc.edu",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Description: This package has several functions for performing omics data analysis in environmental health sciences.
 License: What license it uses
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.0
 Imports:
     tidyverse,
     janitor, 
     MASS, 
-    mvtnorm
+    mvtnorm, 
+    data.table 

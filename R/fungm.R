@@ -1,7 +1,7 @@
 #' Get formatted character with geometric mean and 95\% CI
-#' 
-#' @import DescTools tidyverse
-#' 
+#' @import tidyverse
+#' @importFrom DescTools Gmean
+#' @importFrom DescTools Gsd
 #' @export  
 #' 
 #' @param x Numeric Vector
