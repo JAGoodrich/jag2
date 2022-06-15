@@ -16,5 +16,4 @@ Imports:
     tidyverse,
     janitor, 
     MASS, 
-    mvtnorm, 
-    data.table 
+    mvtnorm  
