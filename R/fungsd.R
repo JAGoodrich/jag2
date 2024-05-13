@@ -16,11 +16,11 @@ fungsd <- function(x, n.digits = 1, na.rm = FALSE){
     if(any(x==0)){stop("Data contains 0's")}     
   }
   
-  gm <- Gmean(x, na.rm = na.rm) %>% 
-    round(., n.digits) %>% 
-    formatC(. , format="f", digits=n.digits)
-  gs <- Gsd(x, na.rm = na.rm) %>% 
-    round(., n.digits) %>% 
-    formatC(. , format="f", digits=n.digits)
+  gm <- Gmean(x, na.rm = na.rm) |>
+    round(n.digits) |> 
+    formatC(format="f", digits=n.digits)
+  gs <- Gsd(x, na.rm = na.rm) |> 
+    round(n.digits) |> 
+    formatC(format="f", digits=n.digits)
   return(paste(gm[1], " (", gs,")", sep = ""))
 }

@@ -12,6 +12,9 @@ fungm(x, n.digits = 3, na.rm = FALSE, CI_or_SD = "CI")
 \item{n.digits}{number of digits after the decimal point. Default is 3.}
 
 \item{na.rm}{Remove NAs from calculation? Default is FALSE.}
+
+\item{CI_or_SD}{Should output include confidence intervals (CI) or standard 
+deviations (SD)? Default is CI.}
 }
 \description{
 Get formatted character with geometric mean and 95\% CI

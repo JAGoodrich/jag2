@@ -1,6 +1,9 @@
 #' Clean LC-MS Data
 #' 
 #' @import tidyverse
+#' @param data data frame
+#' @param pct_metab_na_allowed percent of na's allowed in lc-ms columns
+#' @param pct_obs_na_allowed percent of na's allowed in lc-ms rows 
 #' 
 full_data_cleaning <- function(data, pct_metab_na_allowed, pct_obs_na_allowed){
   metabolites <- data %>%

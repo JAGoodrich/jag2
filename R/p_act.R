@@ -11,6 +11,7 @@
 #' 
 #' @import tidyverse mvtnorm
 #' @importFrom MASS ginv
+#' @importFrom stats as.formula cor cov2cor lm qnorm resid
 #' @export
 #' @param p_values Data frame with 3 columns. File should contain one row for 
 #' each test. Missingness is not allowed. 
@@ -21,7 +22,7 @@
 #'   
 #'   Column 3: The p-value from each test    
 #'   
-#' @param  dpdt_vars traits.txt: 
+#' @param  y_vars traits.txt: 
 #'   Not necessary if only one trait is considered.
 #' One column for each trait. 
 #' One row for each individual plus header row of trait names.  
@@ -29,7 +30,7 @@
 #' Missing values coded as NA.  
 #' Must have same # of individuals as metabolite.txt.
 #' 
-#' @param ind_vars metabolite.txt/outcomes.txt: 
+#' @param x_vars metabolite.txt/outcomes.txt: 
 #'   One column for each metabolite score. 
 #' One row for each individual plus a header row of metabolite labels.  
 #' Missing values must be coded as NA.
@@ -39,7 +40,7 @@
 #' and one row for each individual. Column names should be the names of the 
 #' covariates. Not necessary if no covariates used; Not necessary if only 
 #' one independent variable is considered. Missing values are ok.
-#' Must have same # of individuals as @ind_vars.
+#' Must have same # of individuals as @x_vars.
 #' 
 #' @param alpha Used to determine when to stop sequential testing. 
 #' If not specified, default value of .05 is used.

@@ -7,19 +7,21 @@ Authors@R:
            role = c("aut", "cre"),
            email = "jagoodri@usc.edu",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: This package has several functions for performing omics data analysis in environmental health sciences.
-License: What license it uses
+Description: Jesse's convenience functions for data analysis and formatting.
+License: Apache License (>= 2)
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Imports:
     tidyverse,
     janitor, 
     MASS, 
-    mvtnorm  
+    mvtnorm, 
+    DescTools,
+    dplyr,
+    purrr,
+    stringr,
+    tibble,
+    forcats
 Depends: 
-  DescTools,
-  dplyr,
-  purrr,
-  stringr,
-  tibble
+    R (>= 4.0.0)

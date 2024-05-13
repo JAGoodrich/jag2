@@ -1,6 +1,7 @@
 #' Rename exposures, including PFAS and lipophilic pops.
 #' 
 #' @import tibble dplyr
+#' @importFrom forcats fct_relevel
 #' 
 #' @export
 #' 
@@ -31,9 +32,8 @@ rename_exposures <- function(exposure_names,
         exposure == "pfdoa" ~ "PFDoDA",
         exposure == "Mixture effect" ~ "Mixture effect",
         TRUE ~ toupper(exposure)) %>% 
-          as.factor() %>% 
-          forcats::fct_relevel(., 
-                               "PFOS", "PFOA", "PFHxS", "PFNA", "PFHpS","PFDA", "PFPeS", 
+          as.factor() |>
+          fct_relevel("PFOS", "PFOA", "PFHxS", "PFNA", "PFHpS","PFDA", "PFPeS", 
                                "PFHpA","N-MeFOSAA-b","N-EtFOSAA","PFDS","PFBS", 
                                "8:2 FTS", "PFDoDA", "PFUnDA","PFNS","PFHxA",
                                "Mixture effect", 
@@ -76,9 +76,8 @@ rename_exposures <- function(exposure_names,
           exposure == "pcb_num" ~   "Number of detected PCB's"   , 
           exposure == "pbde_num" ~    "Number of detected PBDE's",
           TRUE ~ toupper(exposure)) %>% 
-            as.factor() %>% 
-            forcats::fct_relevel(., 
-                                 "PFOS", "PFOA", "PFHxS", 
+            as.factor() |>
+            fct_relevel("PFOS", "PFOA", "PFHxS", 
                                  "PFNA", "PFHpS","PFDA", 
                                  "PFPeS", "PFHpA",
                                  "N-MeFOSAA-b*", "N-EtFOSAA*",
@@ -101,7 +100,7 @@ rename_exposures <- function(exposure_names,
       
       exposure2 <-  exposure2 %>% 
         dplyr::mutate(exposure2 = 
-                        forcats::fct_relevel(
+                        fct_relevel(
                           exposure2, 
                           #PFSA's
                           "PFOS", 

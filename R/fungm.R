@@ -7,6 +7,8 @@
 #' @param x Numeric Vector
 #' @param n.digits number of digits after the decimal point. Default is 3.
 #' @param na.rm Remove NAs from calculation? Default is FALSE.
+#' @param CI_or_SD Should output include confidence intervals (CI) or standard 
+#' deviations (SD)? Default is CI.
 fungm <- function(x, n.digits = 3, na.rm = FALSE, CI_or_SD = "CI"){
   if( any(is.na(x))){
     if(na.rm == TRUE){warning("Data contains NA's")}  
@@ -15,13 +17,13 @@ fungm <- function(x, n.digits = 3, na.rm = FALSE, CI_or_SD = "CI"){
     if(any(x==0)){stop("Data contains 0's")}     
   }
   
-  gm <- Gmean(x, conf.level = .95, na.rm = na.rm) %>% 
-    signif(., n.digits) %>% 
-    formatC(. , format="g", digits=n.digits)
+  gm <- Gmean(x, conf.level = .95, na.rm = na.rm) |>
+    signif(n.digits) |>
+    formatC(format="g", digits=n.digits)
   
-  g_sd <- Gsd(x, na.rm = na.rm) %>% 
-    signif(., n.digits) %>% 
-    formatC(. , format="g", digits=n.digits)
+  g_sd <- Gsd(x, na.rm = na.rm) |>
+    signif(n.digits) |>
+    formatC(format="g", digits=n.digits)
   
   
   if(CI_or_SD == "CI"){

@@ -7,6 +7,8 @@
 #' @param raw_ft Raw LC-MS Feature Table
 #' @param samples Which to select? One of: "all", "sol", "q3". In future: "duplicates" 
 clean_ft <- function(raw_ft, samples){
+  mz <- time <- feature <- NULL
+  
   if(samples == "sol"){
     data <- raw_ft %>% 
     clean_names() %>%

@@ -6,6 +6,13 @@
 \usage{
 full_data_cleaning(data, pct_metab_na_allowed, pct_obs_na_allowed)
 }
+\arguments{
+\item{data}{data frame}
+
+\item{pct_metab_na_allowed}{percent of na's allowed in lc-ms columns}
+
+\item{pct_obs_na_allowed}{percent of na's allowed in lc-ms rows}
+}
 \description{
 Clean LC-MS Data
 }

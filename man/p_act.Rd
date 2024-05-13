@@ -16,16 +16,13 @@ each test. Missingness is not allowed.
   
   Column 3: The p-value from each test}
 
-\item{covariates}{Data frame with one column for each covariate, 
-and one row for each individual. Column names should be the names of the 
-covariates. Not necessary if no covariates used; Not necessary if only 
-one independent variable is considered. Missing values are ok.
-Must have same # of individuals as @ind_vars.}
+\item{x_vars}{metabolite.txt/outcomes.txt: 
+  One column for each metabolite score. 
+One row for each individual plus a header row of metabolite labels.  
+Missing values must be coded as NA.
+Not necessary if only one marker is considered.}
 
-\item{alpha}{Used to determine when to stop sequential testing. 
-If not specified, default value of .05 is used.}
-
-\item{dpdt_vars}{traits.txt: 
+\item{y_vars}{traits.txt: 
   Not necessary if only one trait is considered.
 One column for each trait. 
 One row for each individual plus header row of trait names.  
@@ -33,11 +30,14 @@ If covariates are used, need trait values residualized on covariates.
 Missing values coded as NA.  
 Must have same # of individuals as metabolite.txt.}
 
-\item{ind_vars}{metabolite.txt/outcomes.txt: 
-  One column for each metabolite score. 
-One row for each individual plus a header row of metabolite labels.  
-Missing values must be coded as NA.
-Not necessary if only one marker is considered.}
+\item{covariates}{Data frame with one column for each covariate, 
+and one row for each individual. Column names should be the names of the 
+covariates. Not necessary if no covariates used; Not necessary if only 
+one independent variable is considered. Missing values are ok.
+Must have same # of individuals as @x_vars.}
+
+\item{alpha}{Used to determine when to stop sequential testing. 
+If not specified, default value of .05 is used.}
 }
 \value{
 a data frame containing 4 columns: y_vars, x_vars, original p values, 
